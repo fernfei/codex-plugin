@@ -21,21 +21,8 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
-      - name: Setup Node.js 22
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22.12.0'
-
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
-
-      - name: Install webview dependencies
-        working-directory: webview
-        run: npm ci
-
-      - name: Install ai-bridge dependencies
-        working-directory: ai-bridge
-        run: npm ci
 
       - name: Build Plugin
         run: ./gradlew buildPlugin
